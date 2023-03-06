@@ -31,3 +31,18 @@ Port expose (external port on host machine : internal port of the container)
 ```
 
 Для доступа к базе "глазами" скачаем MySQL [Workbench](https://dev.mysql.com/downloads/windows/installer/8.0.html)
+
+
+### DUMP ###
+В итоговом контейнере попробовать загрузить dump базы данных. Example:
+
+```yaml
+mysql:
+ image: mysql:5.6
+ environment:
+   MYSQL_ROOT_PASSWORD: pass
+ ports:
+   - 3306:3306
+ volumes:
+   - ./db-dump:/docker-entrypoint-initdb.d
+```
