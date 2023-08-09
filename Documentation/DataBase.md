@@ -2,7 +2,7 @@
 Чтобы упростить запуск, установим Docker и возьмём ядро БД из образа, для тестирования нужно будет просто накатить dump на базу в контейнере.
 
 ```
-docker run --name mysql574 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=testdb -e MYSQL_USER=admin -e MYSQL_PASSWORD=root -d mysql:5.7.41 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+docker run --net=host --name mysql574 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=db -e MYSQL_USER=admin -e MYSQL_PASSWORD=admin -d mysql:5.7.41 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
 ```
 
 Имя контейнера
